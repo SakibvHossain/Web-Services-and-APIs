@@ -30,3 +30,5 @@ With these configurations, your application will be able to connect to the H2 da
 ``git restore --staged <file>...``
 ### To delete file
 ``git rm <file>``
+### To update CHANGELOG.md
+`` git log --pretty="- %s" > CHANGELOG.md``
