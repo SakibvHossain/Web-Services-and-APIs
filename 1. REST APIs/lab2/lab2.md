@@ -1,4 +1,4 @@
-# Lab 2 
+# Lab 2
 
 ### Problem Encounter
 + org.springframework.data:spring-data-commons:jar:3.1.4 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.data:spring-data-commons:jar:3.1.4 from/to central (https://repo.maven.apache.org/maven2): Connection reset
@@ -14,3 +14,18 @@ Running ```mvn -X``` followed by ``mvn clean install`` is a good approach for tr
 By running ``mvn -X``, you enabled debug mode and obtained detailed output, which likely helped you identify and resolve the problem. Once the issue was fixed, running mvn clean install allowed Maven to perform a clean build of your project, ensuring that all dependencies are resolved and the project is compiled successfully.
 
 This two-step process is often used to diagnose and fix build-related issues in Maven projects. The debug output from ``mvn -X`` can provide valuable information about the build process, and then running ``mvn clean install`` ensures a clean and reliable build.
+
+
+
+### How table created and inserted on database internal detail with high-level overview
+1. **Application Startup**: When you run the Spring Boot application, it initializes the necessary components and configurations.
+2. **Component Scanning**: Spring Boot scans for components, such as controller, services, and repositories, using annotations like ```@RestController```, ```@Services```, ``@Repository``, and ``@Entity``. This allows Spring to identify and manage these components.
+3. **Dependency Injection**: Spring Boot uses dependency injection to inject dependencies into the components. For example, in the `DogController` class, the `DogService` dependency is injected using `@Autowired`.
+4. **Request Mapping**: Once the application is initialized, it starts listening for incoming HTTP requests. When a request is received, Spring Boot maps the request to the appropriate controller method based on the URL and HTTP method specified in the `@RequestMapping`, `@GetMapping`, `@PostMapping`, etc. annotations.
+5. **Controller Execution**: The mapped controller method is executed, performing the necessary logic and interacting with other components, such as services or repository.
+6. **Response Generation**: After the controller method completes its execution, it returns a response to the client. This response can be in various formats, such as JSON, XML, or HTML, depending on the configuration and the annotations used.
+7. The ``data.sql`` file execution happens during the application startup process, before the controller is reached. 
+
+Simply if I said about `data.sql` only then, After running the spring boot application it reads `application.properties` to configure the database then looks for `data.sql` file which is executed by the application database initialization mechanism. This mechanism provided by spring boot framework. Once the `data.sql` is executed successfully then table created which populated with specified data.
+
+
