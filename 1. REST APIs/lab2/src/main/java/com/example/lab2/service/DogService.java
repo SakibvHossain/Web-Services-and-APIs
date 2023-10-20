@@ -1,2 +1,4 @@
-package com.example.lab2.service;public class DogService {
+package com.example.lab2.service;
+
+public class DogService {
 }
