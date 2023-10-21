@@ -1,10 +1,10 @@
 # Lab 2
 
-### Problem Encounter
-+ org.springframework.data:spring-data-commons:jar:3.1.4 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.data:spring-data-commons:jar:3.1.4 from/to central (https://repo.maven.apache.org/maven2): Connection reset
-+ Unresolved dependency: 'org.springframework.data:spring-data-jpa:jar:3.1.4'
+### #1 Problem occurs
+1. org.springframework.data:spring-data-commons:jar:3.1.4 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.data:spring-data-commons:jar:3.1.4 from/to central (https://repo.maven.apache.org/maven2): Connection reset
+2. Unresolved dependency: 'org.springframework.data:spring-data-jpa:jar:3.1.4'
 
-### How problem fixed
+### #1 Problem fixed
 1. First, Configure the apache maven (apache-maven-3.9.5-bin.zip) also jdk must be 17 or higher.
 2. Then, check ``mvn --version`` if the configuration setup done successfully then you'll see the version.
 3. After that Open the project then run the following command on your terminal: ``mvn -X`` then ``mvn clean install``
@@ -28,4 +28,21 @@ This two-step process is often used to diagnose and fix build-related issues in 
 
 Simply if I said about `data.sql` only then, After running the spring boot application it reads `application.properties` to configure the database then looks for `data.sql` file which is executed by the application database initialization mechanism. This mechanism provided by spring boot framework. Once the `data.sql` is executed successfully then table created which populated with specified data.
 
+### #2 Problem occurs
+1. ```data.sql```: The sql query that I have written was perfectly working on other project. But on this project it creates table but not inserted data on the table.
+2. ``DogNotFoundException.java``: This class is used to handle error. If an id is requested that doesn’t exist, appropriately handle the error. But when I run the application and enter the wrong id the message doesn't appear.
 
+### #2 Problem Fixed
+1. ``data.sql``: What I have done here is I have written query one after another like after create table query I have provided insert query. Than I create separate file for insertion(`schema.sql`) and creation(`data.sql`) now it's working perfectly also added this (`spring.jpa.hibernate.ddl-auto=none`) configuration at `application.properties`. Why because this ensures the schema.sql is picked up and the create scripts are executed.
+2. ``DogNotFoundException.java``: To fix this issue. I did the following:
+ Added this lines to DogController:
+   ```
+   @ExceptionHandler(value= DogNotFoundException.class)
+   public ResponseEntity<String> returnNotFoundException(DogNotFoundException ex){
+   return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+   }
+   ```
+   after this I added the following line on DogServiceImpl:
+   ``
+    optionalBreed.orElseThrow(() -> new DogNotFoundException("Breed not found")); 
+   ``
