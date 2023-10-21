@@ -6,35 +6,34 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Dog {
+public class Cats {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String name;
-    private String Breed;
-    private String Origin;
+    private Long id;
 
-    public Dog(Integer id, String name, String breed, String origin) {
+    private String name;
+    private String breed;
+    private String origin;
+
+    public Cats(Long id, String name, String breed, String origin) {
         this.id = id;
         this.name = name;
-        this.Breed = breed;
-        this.Origin = origin;
+        this.breed = breed;
+        this.origin = origin;
     }
 
-    public Dog(String name, String breed) {
+    public Cats(String name, String breed) {
         this.name = name;
-        this.Breed = breed;
+        this.breed = breed;
     }
 
-    public Dog(){
+    public Cats() {}
 
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,18 +46,18 @@ public class Dog {
     }
 
     public String getBreed() {
-        return Breed;
+        return breed;
     }
 
     public void setBreed(String breed) {
-        Breed = breed;
+        this.breed = breed;
     }
 
     public String getOrigin() {
-        return Origin;
+        return origin;
     }
 
     public void setOrigin(String origin) {
-        Origin = origin;
+        this.origin = origin;
     }
 }
