@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cats {
+public class Dog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -15,19 +15,19 @@ public class Cats {
     private String breed;
     private String origin;
 
-    public Cats(Long id, String name, String breed, String origin) {
+    public Dog(Long id, String name, String breed, String origin) {
         this.id = id;
         this.name = name;
         this.breed = breed;
         this.origin = origin;
     }
 
-    public Cats(String name, String breed) {
+    public Dog(String name, String breed) {
         this.name = name;
         this.breed = breed;
     }
 
-    public Cats() {}
+    public Dog() {}
 
     public Long getId() {
         return id;

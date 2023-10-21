@@ -1,10 +1,12 @@
 package com.example.lab2.controller;
 
-import com.example.lab2.entity.Cats;
+import com.example.lab2.entity.Dog;
+import com.example.lab2.service.DogNotFoundException;
 import com.example.lab2.service.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,9 +24,9 @@ public class DogController {
     }
 
     @GetMapping("/dogs")
-    public ResponseEntity<List<Cats>> getAllDogs() {
-        List<Cats> list = dogService.retrieveDogs();
-        return new ResponseEntity<List<Cats>>(list, HttpStatus.OK);
+    public ResponseEntity<List<Dog>> getAllDogs() {
+        List<Dog> list = dogService.retrieveDogs();
+        return new ResponseEntity<List<Dog>>(list, HttpStatus.OK);
     }
 
     @GetMapping("/dogs/breed")
@@ -45,4 +47,8 @@ public class DogController {
         return new ResponseEntity<List<String>>(list, HttpStatus.OK);
     }
 
+    @ExceptionHandler(value= DogNotFoundException.class)
+    public ResponseEntity<String> returnNotFoundException(DogNotFoundException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }
