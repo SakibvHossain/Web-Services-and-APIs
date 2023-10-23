@@ -12,6 +12,8 @@ GraphQL is a query language for APIs, which means it is used to request and retr
 So, in summary, HQL is specific to the Hibernate ORM framework and is used for querying and manipulating data in relational databases. GraphQL, on the other hand, is a query language for APIs and is used to request and retrieve data from APIs, regardless of the underlying data source.
 
 
+
+
 ### When you need to change your recent commit which has been pushed.
 1. `git commit --amend -m "refactor: Anything"`
 2. `git push --force origin <branch>`
