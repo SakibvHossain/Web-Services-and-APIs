@@ -11,7 +11,11 @@ GraphQL is a query language for APIs, which means it is used to request and retr
 
 So, in summary, HQL is specific to the Hibernate ORM framework and is used for querying and manipulating data in relational databases. GraphQL, on the other hand, is a query language for APIs and is used to request and retrieve data from APIs, regardless of the underlying data source.
 
-
+### What we will learn on GraphQL lecture
+* Overview of graphQL and the Schema
+* Build graphQL server that exposes APIs to create, read, update & delete
+* Learn about resolver, queries, mutators and how to handle errors.
+* We will wrap up with graphiql a web application that allows to execute queries, mutations against a GraphQL Server. 
 
 
 ### When you need to change your recent commit which has been pushed.
