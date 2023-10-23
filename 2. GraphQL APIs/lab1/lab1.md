@@ -15,7 +15,14 @@ So, in summary, HQL is specific to the Hibernate ORM framework and is used for q
 * Overview of graphQL and the Schema
 * Build graphQL server that exposes APIs to create, read, update & delete
 * Learn about resolver, queries, mutators and how to handle errors.
-* We will wrap up with graphiql a web application that allows to execute queries, mutations against a GraphQL Server. 
+* We will wrap up with graphiql a web application that allows to execute queries, mutations against a GraphQL Server.
+
+### Why we need to learn GraphQL
+REST is most popular way to expose data from the server
+Response (returned from a REST Api is very rigidকঠোর or অনমনীয়) and returns all of the
+data points as designed by the developer whether you need them or not.
+
+that's for we need GraphQL because it offers greater flexibility
 
 
 ### When you need to change your recent commit which has been pushed.
