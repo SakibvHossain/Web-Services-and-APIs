@@ -19,6 +19,7 @@ So, in summary, HQL is specific to the Hibernate ORM framework and is used for q
 
 ### Why we need to learn GraphQL
 REST is most popular way to expose data from the server
+
 Response (returned from a REST Api is very rigid (কঠোর or অনমনীয়) and returns all of the
 data points as designed by the developer whether you need them or not.
 
