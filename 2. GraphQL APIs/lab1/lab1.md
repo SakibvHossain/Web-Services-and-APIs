@@ -24,6 +24,12 @@ data points as designed by the developer whether you need them or not.
 
 that's for we need GraphQL because it offers greater flexibility
 
+### Why we need to learn GraphQL
+REST is most popular way to expose data from the server
+Response (returned from a REST Api is very rigidকঠোর or অনমনীয়) and returns all of the
+data points as designed by the developer whether you need them or not.
+
+that's for we need GraphQL because it offers greater flexibility
 
 ### When you need to change your recent commit which has been pushed.
 1. `git commit --amend -m "refactor: Anything"`
