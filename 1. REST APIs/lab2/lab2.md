@@ -46,3 +46,19 @@ Simply if I said about `data.sql` only then, After running the spring boot appli
    ``
     optionalBreed.orElseThrow(() -> new DogNotFoundException("Breed not found")); 
    ``
+
+### #3 Problem occurs & fix (Naming Convention matters)
+While creating database keep in mind that The naming convention for database initialization scripts in a Spring Boot application is important. By default, Spring Boot looks for two specific files: `schema.sql` and `data.sql`.
+The `schema.sql` file is used for creating the database schema, including tables, indexes, and constraints. It is executed once during the application startup.
+
+The `data.sql` file, on the other hand, is used for inserting data into the database. It is executed every time the application starts up, after the schema.sql file.
+
+When you named your files create_data.sql and insert_data.sql, Spring Boot was not able to find them automatically during the initialization process. So, To make your custom-named scripts work, you can configure Spring Boot to look for them explicitly. You can do this by specifying the file names in your application.properties.
+For example, if you want to use create_data.sql for schema creation and insert_data.sql for data insertion, you can add the following configuration in your application.properties file:
+
+```
+spring.datasource.schema=classpath:create_data.sql
+spring.datasource.data=classpath:insert_data.sql
+```
+
+By providing these configurations, Spring Boot will use your custom-named scripts instead of the default `schema.sql` and `data.sql` files.
