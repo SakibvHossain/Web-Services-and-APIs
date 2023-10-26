@@ -16,6 +16,7 @@ public class Dog {
     private String origin;
 
     public Dog(Long id, String name, String breed, String origin) {
+        super();
         this.id = id;
         this.name = name;
         this.breed = breed;
@@ -23,6 +24,7 @@ public class Dog {
     }
 
     public Dog(String name, String breed) {
+        super();
         this.name = name;
         this.breed = breed;
     }

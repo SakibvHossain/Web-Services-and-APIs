@@ -29,6 +29,10 @@ public class DogServiceImpl implements DogService{
         return (List<String>) dogRepository.findAllName();
     }
 
+    public List<String> retrieveDogOrigin(){
+        return (List<String>) dogRepository.findAllOrigin();
+    }
+
     public String retrieveDogBreedById(Long id) {
         Optional<String> optionalBreed = Optional.ofNullable(dogRepository.findBreedById(id));
         return optionalBreed.orElseThrow(() -> new DogNotFoundException("Breed not found"));

@@ -47,6 +47,12 @@ public class DogController {
         return new ResponseEntity<List<String>>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/dogs/origin")
+    public ResponseEntity<List<String>> getDogOrigin(){
+        List<String> list = dogService.retrieveDogOrigin();
+        return new ResponseEntity<List<String>>(list, HttpStatus.OK);
+    }
+
     @ExceptionHandler(value= DogNotFoundException.class)
     public ResponseEntity<String> returnNotFoundException(DogNotFoundException ex){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
