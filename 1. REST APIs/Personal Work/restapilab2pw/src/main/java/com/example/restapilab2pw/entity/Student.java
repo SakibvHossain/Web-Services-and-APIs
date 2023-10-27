@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * The Student class represents a student with properties such as id, name, batch, department, and
+ * blood type.
+ */
 @Entity
 public class Student {
     @Id
