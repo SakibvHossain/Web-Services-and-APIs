@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * The StudentServerImplementation class is a service implementation that retrieves student data from a
+ * repository.
+ */
 @Service
 public class StudentServerImplementation implements StudentService{
     @Autowired
