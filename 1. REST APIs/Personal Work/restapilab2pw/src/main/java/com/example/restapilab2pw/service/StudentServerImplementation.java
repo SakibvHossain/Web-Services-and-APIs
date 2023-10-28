@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 /**
  * The StudentServerImplementation class is a service implementation that retrieves student data from a
  * repository.
@@ -43,6 +45,7 @@ public class StudentServerImplementation implements StudentService{
     //We will take care of it later
     @Override
     public String retrieveStudentById(Long id) {
-        return repository.findAllNameAlsoDepartment(id);
+        Optional<String> findStudentById = Optional.ofNullable(repository.findAllNameAlsoDepartment(id));
+        return findStudentById.orElseThrow(() -> new StudentNotFoundException("Student Not Found"));
     }
 }
